@@ -1,0 +1,31 @@
+.page-header {
+    background-color: #66d9ff;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+}
+
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+    color: #ffffff;
+    font-size: 36pt;
+    text-decoration: none;
+}
+
+.page-header h1 {
+    text-align: center;
+}
+
+body {
+    background-color:  #99e6ff;
+}
+body div {
+	background:  #99e6ff;
+	font-family: 'Lobster';
+}
+h1 a, h2 a, h3 a {
+	color: black;
+	font-family: 'Lobster';
+}
+p {
+    font-family: 'Lobster';
+    font-size: 15px;
+}

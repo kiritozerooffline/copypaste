@@ -1,0 +1,40 @@
+{% load staticfiles %}
+
+  {% block head %}
+
+     <title>iBlog.com</title>
+
+  {% endblock %}
+
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+      <link rel="stylesheet" href="{% static 'accounts/style.css' %}">
+
+
+    <div class="page-header">
+    <h1>iBlog</h1>
+    </div>
+
+  {% block body %}
+
+    {% block content %}
+
+      <div class="container">
+
+          <h1>New post</h1>
+
+          <form method="POST" class="post-form">
+
+            {% csrf_token %}
+              {{ form.as_p }}
+
+              <button type="submit" class="save btn btn-default">Save</button>
+
+            </form>
+          
+      </div>
+
+    {% endblock %}
+
+  {% endblock %}
+

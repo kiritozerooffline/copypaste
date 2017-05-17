@@ -1,0 +1,82 @@
+{% load staticfiles %}
+
+    {% block head %}
+        <title>Home</title>
+    {% endblock %}
+
+
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'accounts/style.css' %}">
+
+
+    {% block body %}
+
+        <div class="page-header">
+
+            <h1>iBlog</h1>
+
+        </div>
+
+        <div class="container">
+
+          <div class="navbar-header">
+          <a class="navbar-brand" href="/account/login">Back to Login</a>
+          </div>
+
+        <div class="container-fluid">
+
+          <ul class="nav navbar-nav navbar-right">
+          <div class="navbar-header">
+          <a class="navbar-brand" href="/account/register">Register</a>
+          </div>
+
+          <ul class="nav navbar-nav navbar-right">
+          <div class="navbar-header">
+          <a class="navbar-brand" href="/account/logout">Logout</a>
+          </div>
+
+        </div>
+        </div>
+
+    {% endblock %}
+
+        <div class="container">
+
+        <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+
+        <a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
+
+        </div>
+
+    {% block content %}
+
+        {% for post in posts %}
+
+        <div class="container">
+
+            <div class="post">
+
+                <h1>{{ post.title }}</h1>
+
+                <p>{{ post.text|linebreaksbr }}</p>
+
+                <div class="date">
+                    {{ post.published_date }}
+                </div>
+
+                <div class="author">Author:
+                    {{ post.author }}
+                </div>
+
+
+                
+                <a class="btn btn-info" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+
+                <a class="btn btn-info" href="{% url 'post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+
+            </div>
+        </div>
+        {% endfor %}
+    {% endblock content %}
+ 

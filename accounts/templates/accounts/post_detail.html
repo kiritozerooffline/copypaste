@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+	{% block content %}
+
+		<div class="container">
+
+		    <div class="post">
+
+		    	<a class="btn btn-info" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
+
+		        <a class="btn btn-info" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+
+		        <a class="btn btn-info" href="{% url 'post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+
+		        <ul class="nav navbar-nav navbar-right">
+          		<a class="navbar-brand" href="/account">Back</a>
+
+          		</div>
+
+		        <h1>{{ post.title }}</h1>
+
+		        <p>{{ post.text|linebreaksbr }}</p>
+
+			        {% if post.published_date %}
+
+				    <div class="date">
+
+				        {{ post.published_date }}
+
+				        {{ user.username }}
+
+				    </div>
+
+				{% else %}
+
+				{% endif %}
+
+		    </div>
+
+		</div>
+	{% endblock %}
